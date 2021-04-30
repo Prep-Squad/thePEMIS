@@ -2,6 +2,7 @@
 const { db } = require('./db')
 const PORT = process.env.PORT || 8409
 const app = require('./app')
+require('dotenv').config()
 
 const init = async () => {
   try {
@@ -13,4 +14,7 @@ const init = async () => {
   }
 }
 
+
 init()
+
+
