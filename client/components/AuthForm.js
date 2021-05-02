@@ -6,7 +6,7 @@ import {authenticate} from '../store'
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const {name, displayName, handleSubmit, error, history} = props
 
   return (
     <div>
@@ -55,14 +55,14 @@ const mapSignup = state => {
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch, props) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
       const username = evt.target.username.value
       const password = evt.target.password.value
-      dispatch(authenticate(username, password, formName))
+      dispatch(authenticate(username, password, formName, props.history))
     }
   }
 }

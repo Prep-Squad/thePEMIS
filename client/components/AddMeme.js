@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { uploadImage, response } from '../store/images';
+import { uploadMeme, uploadMemeThunk } from '../store/images';
 import Preview from './Preview';
+import axios from 'axios'
 
 
 class AddMeme extends Component {
@@ -13,25 +14,28 @@ class AddMeme extends Component {
     image: null,
     loading: false
   }
+  this.Upload_To_AWS_S3 = this.Upload_To_AWS_S3.bind(this);
+  this.closeAlert = this.closeAlert.bind(this)
   }
  
   
   componentDidMount(){
-    this.props.response('','');
+    //this.props.response('','');
   }
 
-  Upload_To_AWS_S3(e) {
+  async Upload_To_AWS_S3(e) {
     e.preventDefault();
     this.setState({
        loading: true
     });
     let formData = new FormData();
-    formData.append("photo", this.state.image);
-    this.props.uploadImage(formData);
+    formData.append("meme", this.state.image);
+    formData.append('userId', this.props.auth.id)
+    this.props.uploadMemeThunk(formData, this.props, this.props.auth.id);
   }
 
   componentDidUpdate(prevProps) {
-    if( prevProps.aws_s3_image_url !== this.props.aws_s3_image_url ) {
+    if( prevProps.memeUrl !== this.props.memeUrl ) {
         this.setState({
             loading: false
         });
@@ -40,36 +44,37 @@ class AddMeme extends Component {
 
   closeAlert(e) {
     e.preventDefault();
-    this.props.response('','');
+    //this.props.response('','');
   }
 
   render() {
+    console.log('this.props.auth: ', this.props.auth)
     return (
-      <div className="row">
-        <div className="col-md-12">
-            <div className="page-header">
+      <div>
+        <div>
+            <div>
               <h3>
-                 Custom Photo Upload <small>with ReactJS, NodeJS and AWS S3.</small>
+                 Add A Meme To Your Library below!
               </h3>
             </div>
         </div>
-        <div className="col-md-12">
-          <div className="upload-btn-wrapper mb-2">
-            <button className="upload-btn bg-primary text-white">Choose Photo...</button>
+        <div >
+          <div>
+           {/* <button variant='contained' className="upload-btn bg-primary text-white">Choose Meme!</button> */}
             <input name="image" type="file" onChange={ e => {
               this.setState({ image: e.currentTarget.files[0] })
             }} />
           </div>
         </div>
-        <div className="col-md-12">
+        <div>
           <Preview file={this.state.image} />
         </div>
-        { this.state.image ? <div className="col-md-12">
-          <button className="btn bg-warning text-dark mt-3" onClick={this.Upload_To_AWS_S3}>{ this.state.loading ? 'Uploading...' : 'Upload To AWS S3' }</button>
+        { this.state.image ? <div>
+          <button  onClick={this.Upload_To_AWS_S3}>{ this.state.loading ? 'Uploading...' : 'Upload to the PEMIS' }</button>
         </div> : null }
         { this.props.msg ? 
-          <div className="col-lg-12 col-md-12 ">
-              <div className={`alert ${this.props.type} alert-dismissible mt-3`}>
+          <div>
+              <div >
                 <button className="close" onClick={this.closeAlert.bind(this)} data-dismiss="alert" aria-label="close">×</button>
                 <span dangerouslySetInnerHTML={{__html: this.props.msg}} />
               </div>
@@ -80,11 +85,11 @@ class AddMeme extends Component {
 }
 
 AddMeme.propTypes = {
-    aws_s3_image_url: PropTypes.string,
+    memeUrl: PropTypes.string,
     msg: PropTypes.string,
     type: PropTypes.string
 }
 
-const mapStateToProps = ({aws_s3_image_url,msg,type}) => ({aws_s3_image_url,msg,type});
-const mapDispatchToProps = dispatch => bindActionCreators( { uploadImage, response }, dispatch);
+const mapStateToProps = ({memeUrl,msg,type, auth}) => ({memeUrl,msg,type, auth});
+const mapDispatchToProps = dispatch => bindActionCreators( { uploadMeme, uploadMemeThunk }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(AddMeme)

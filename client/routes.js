@@ -6,6 +6,7 @@ import Home from './components/Home';
 import {me} from './store'
 import AddMeme from './components/AddMeme'
 import Preview from './components/Preview'
+import Library from './components/Library'
 
 /**
  * COMPONENT
@@ -26,6 +27,7 @@ class Routes extends Component {
             <Route path="/login" component={Login}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/memes/add" component={AddMeme}/>
+            <Route path ='/memes/library' component={Library}/>
           </Switch>
      
       </div>

@@ -7,11 +7,11 @@ import {connect} from 'react-redux'
 export const Home = props => {
 
   return (
-    <div>
-      <h3>WELCOME TO THE PEMIS BYITCH</h3>
+    <div className='container'>
+    <img className='bgimg' src="http://www.image.farm/images/2021/05/01/2c89e82ebddf440d22351f301e8b5e4f.png"/>
     </div>
   )
-}
+  }
 
 /**
  * CONTAINER

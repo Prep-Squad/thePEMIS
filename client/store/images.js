@@ -1,24 +1,82 @@
- 
-export const actionTypes = {
-    UPLOAD_IMAGE: 'UPLOAD_IMAGE',
-    SET_AWS_S3_IMAGE_URL: 'SET_AWS_S3_IMAGE_URL',
-    RESPONSE: 'RESPONSE'
-}
+import axios from 'axios'
 
-export function uploadImage (photo) {
+
+const UPLOAD_MEME = 'UPLOAD_MEME'
+const SET_MEME_URL = 'SET_MEME_URL'
+const GET_MEMES = 'GET_MEMES'
+
+export function uploadMeme (meme) {
   return {
-    type: actionTypes.UPLOAD_IMAGE,
-    photo
+    type: UPLOAD_MEME,
+    meme
   }
 }
 
-export function setAwsS3ImageUrl(url) {
-  return { type: actionTypes.SET_AWS_S3_IMAGE_URL, url }
+export function setMemeUrl(url) {
+  return { type: SET_MEME_URL, url }
 }
 
-export function response (response,type) {
+export const getMemes = (memes) =>{
   return {
-    type: actionTypes.RESPONSE,
-    data: { _response: response, _type: type }
+    type: GET_MEMES,
+    memes
+  }
+}
+
+
+const config = {
+    headers: {
+        'content-type': 'multipart/form-data'
+    }
+};
+
+export const uploadMemeThunk = (data, props, userId) => {
+  return async (dispatch) => {
+    try {
+    console.log('data: ', data)
+     const {info} = await axios.post(`/api/memes/${userId}/add`, data, config)
+      console.log('info: ', info)
+      dispatch(uploadMeme(info));
+      props.history.push('/')
+    } catch (error) {
+      console.log(error)
+      console.error('error in the uploadMemeThunk');
+    }
+  };
+};
+
+export const getMemesThunk = (userId) =>{
+   return async (dispatch) => {
+  try {
+    console.log('ALLO POPPET IMA THUNK')
+    const { data } = await axios.get(`/api/memes/${userId}/library`)
+    return dispatch(getMemes(data))
+  } catch (error) {
+    console.log(error)
+    console.error('error in the getMemes thunk')
+  }
+   }
+}
+
+export const InitialState = {
+  msg: '',
+  type: '',
+  memeUrl: '',
+  memes: []
+}
+
+export function imageReducer (state = InitialState, action) {
+  switch (action.type) {
+    case SET_MEME_URL:
+      return {
+        ...state,
+        ...{ setMemeUrl: action.url }
+      }
+    case GET_MEMES:
+    console.log('action.memes: ', action.memes)
+    return action.memes
+
+    default:
+      return state
   }
 }
