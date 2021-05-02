@@ -29,7 +29,7 @@ render() {
         (<h2> L O A D I N G... </h2>) :
       (<div className='all-memes-view'>
 {/* <h1>Your Meme Library:</h1>       */}
-<img className= 'libgreet' src='https://scontent-lga3-1.xx.fbcdn.net/v/t1.15752-9/180740827_756499985036305_305772885211588514_n.png?_nc_cat=103&ccb=1-3&_nc_sid=ae9488&_nc_ohc=o0UaGAeXqToAX8oh-j7&_nc_ht=scontent-lga3-1.xx&oh=d14ba0bd11534f08ab8a3be58375bb36&oe=60B5431B'/>
+<img className= 'libgreet' src='https://scontent-lga3-1.xx.fbcdn.net/v/t1.15752-9/180788259_5469574526447216_8357495854579756410_n.png?_nc_cat=107&ccb=1-3&_nc_sid=ae9488&_nc_ohc=1eRVwT1RZsEAX8FCVb1&_nc_ht=scontent-lga3-1.xx&oh=92d9b5cc19ac5ead0f8711a24bfbfc33&oe=60B3D69A'/>
 <div>
         <div className='meme-container'>
           {memes.map((meme) => (
