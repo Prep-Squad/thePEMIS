@@ -7,11 +7,13 @@ import {motion} from 'framer-motion';
 
 export class Library extends React.Component {
 
-  // componentDidMount() {
-   
-  //     console.log(this.props.match.params)
-  //     this.props.getMemes(this.props.user.id);
-  // }
+  componentDidMount() {
+    if(this.props.user){
+      this.props.getMemes(this.props.user.userId);
+    }
+    this.render()
+  }
+
   componentDidUpdate(prevProps){
     console.log('this.props.userId: ' , this.props.userId)
 if(prevProps.userId !== this.props.userId){

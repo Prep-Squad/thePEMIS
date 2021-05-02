@@ -56,7 +56,9 @@ form div {
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
- box-shadow: 5px 5px 15px 5px #720f88, -9px 5px 15px 5px #720f88, -7px -5px 15px 5px #720f88, 12px -5px 15px 5px #720f88, 12px 10px 15px 7px #720f88, -10px 10px 15px 7px #720f88, -10px -7px 27px 1px #720f88, 5px 5px 15px 5px #720f88;
+ /* box-shadow: 5px 5px 15px 5px #720f88, -9px 5px 15px 5px #720f88, -7px -5px 15px 5px #720f88, 12px -5px 15px 5px #720f88, 12px 10px 15px 7px #720f88, -10px 10px 15px 7px #720f88, -10px -7px 27px 1px #720f88, 5px 5px 15px 5px #720f88; */
+  box-shadow: 0px 0px 18px 6px #15FFF7;
+
 }
 
 nav div {
@@ -64,6 +66,16 @@ nav div {
   justify-content: space-between;
   align-items: center;
 }
+
+nav img:hover {
+  border-radius: 30px;
+  box-shadow: 0px 0px 18px 6px #15FFF7;
+}
+
+/* 
+nav{
+  background-image: url('http://www.image.farm/images/2021/05/02/8ab1e64245bf17f05291a10c39f31862.png')
+} */
 
 
 body{

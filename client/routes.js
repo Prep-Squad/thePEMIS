@@ -23,11 +23,11 @@ class Routes extends Component {
       <div>
       
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login" component={Login}/>
-            <Route path="/signup" component={Signup}/>
-            <Route path="/memes/add" component={AddMeme}/>
-            <Route path ='/memes/library' component={Library}/>
+            <Route exact path="/" exact component={Home} />
+            <Route exact path="/login" component={Login}/>
+            <Route exact path="/signup" component={Signup}/>
+            <Route exact path="/memes/add" component={AddMeme}/>
+            <Route exact path ='/memes/library' component={Library}/>
           </Switch>
      
       </div>

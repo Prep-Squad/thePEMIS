@@ -9,18 +9,18 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
+          <Link to="/"><img src='/home.png'/></Link>
           <a href="#" onClick={handleClick}>
-            Logout
+           <img src='/logout.png'/>
           </a>
-          <Link to='/memes/add'>Add Meme!</Link>
-          <Link to='memes/library'>PEMIS</Link>
+          <Link to='/memes/add'><img src='/addmeme.png'/></Link>
+          <Link to='/memes/library'><img src='/seepemis.png'/></Link>
         </div>
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/login"><img src='/login.png'/></Link>
+          <Link to="/signup"><img src='signup.png'/></Link>
         </div>
       )}
     </nav>

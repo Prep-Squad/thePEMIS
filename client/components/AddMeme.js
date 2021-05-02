@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { uploadMeme, uploadMemeThunk } from '../store/images';
 import Preview from './Preview';
 import axios from 'axios'
+import Tags from './Tags'
 
 
 class AddMeme extends Component {
@@ -59,6 +60,7 @@ class AddMeme extends Component {
             </div>
         </div>
         <div >
+        <Tags />
           <div>
            {/* <button variant='contained' className="upload-btn bg-primary text-white">Choose Meme!</button> */}
             <input name="image" type="file" onChange={ e => {
