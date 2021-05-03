@@ -4,7 +4,7 @@ A work-in-progress Personalized Electronic Meme Index System utilizing the NERD 
 
 Functional:<br/><br/>
 
-✓ Upload memes to S3 Bucket<br/><br/>
+✓ Upload memes to S3 Bucket<br/>
 ✓ Download memes into database<br/>
 ✓ Library component rendering<br/>
 ✓ Tag component exists, if not useful<br/><br/>
