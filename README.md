@@ -1,29 +1,29 @@
 # The PEMIS
 
-A work-in-progress Personalized Electronic Meme Index System utilizing the NERD stack in conjunction with AWS S3 to create a taggable, searchable meme library and editor.
+A work-in-progress Personalized Electronic Meme Index System utilizing the NERD stack in conjunction with AWS S3 to create a taggable, searchable meme library and editor.<br/><br/>
 
-Functional:
+Functional:<br/><br/>
 
-✓ Upload memes to S3 Bucket
-✓ Download memes into database
-✓ Library component rendering
-✓ Tag component exists, if not useful
+✓ Upload memes to S3 Bucket<br/><br/>
+✓ Download memes into database<br/>
+✓ Library component rendering<br/>
+✓ Tag component exists, if not useful<br/><br/>
 
-To Do:
+To Do:<br/><br/>
 
-▢ Create tag model	
-▢ Make memes searchable by tag	
-▢ Create a Single Meme component
-▢ Create Meme Editor
-▢ Link PEMIS to some messaging app API
+▢ Create tag model<br/>
+▢ Make memes searchable by tag<br/>
+▢ Create a Single Meme component<br/>
+▢ Create Meme Editor<br/>
+▢ Link PEMIS to some messaging app API<br/><br/>
 
 
 
-Tech Deck:
+Tech Deck:<br/><br/>
 
-☆ React/React-Redux/React-Router-DOM
-☆ Sequelize/PostgreSQL
-☆ Express/Axios
-☆ AWS-SDK/Multer
-☆ Node.js
-☆ Framer-Motion
+☆ React/React-Redux/React-Router-DOM<br/>
+☆ Sequelize/PostgreSQL<br/>
+☆ Express/Axios<br/>
+☆ AWS-SDK/Multer<br/>
+☆ Node.js<br/>
+☆ Framer-Motion<br/>
