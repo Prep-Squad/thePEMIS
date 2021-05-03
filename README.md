@@ -27,3 +27,4 @@ Tech Deck:<br/><br/>
 ☆ AWS-SDK/Multer<br/>
 ☆ Node.js<br/>
 ☆ Framer-Motion<br/>
+☆ HTML5/CSS<br/>
